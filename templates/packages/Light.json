@@ -1,0 +1,59 @@
+[
+  {
+    "id": "$ID",
+    "on": "false",
+    "type": "InvisibleLight",
+    "position": {
+      "x": "0.29",
+      "y": "1.833",
+      "z": "0.238"
+    },
+    "rotation": {
+      "x": "0",
+      "y": "0",
+      "z": "0"
+    },
+    "containerPosition": {
+      "x": "0.29",
+      "y": "1.833",
+      "z": "0.238"
+    },
+    "containerRotation": {
+      "x": "0",
+      "y": "0",
+      "z": "0"
+    },
+    "storables": [
+      {
+        "id": "CollisionTrigger",
+        "trigger": {
+          "startActions": [
+          ],
+          "transitionActions": [
+          ],
+          "endActions": [
+          ]
+        }
+      },
+      {
+        "id": "PluginManager",
+        "plugins": {
+        }
+      },
+      {
+        "id": "control",
+        "interactableInPlayMode": "false",
+        "position": {
+          "x": "0.29",
+          "y": "1.833",
+          "z": "0.238"
+        },
+        "rotation": {
+          "x": "0",
+          "y": "0",
+          "z": "0"
+        }
+      }
+    ]
+  }
+]

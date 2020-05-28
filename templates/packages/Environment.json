@@ -1,0 +1,61 @@
+[
+  {
+    "id": "$ID",
+    "on": "false",
+    "type": "CustomUnityAsset",
+    "position": {
+      "x": "0",
+      "y": "0",
+      "z": "0"
+    },
+    "rotation": {
+      "x": "0",
+      "y": "0",
+      "z": "0"
+    },
+    "containerPosition": {
+      "x": "0",
+      "y": "0",
+      "z": "0"
+    },
+    "containerRotation": {
+      "x": "0",
+      "y": "0",
+      "z": "0"
+    },
+    "storables": [
+      {
+        "id": "CollisionTrigger",
+        "trigger": {
+          "startActions": [
+          ],
+          "transitionActions": [
+          ],
+          "endActions": [
+          ]
+        }
+      },
+      {
+        "id": "PluginManager",
+        "plugins": {
+        }
+      },
+      {
+        "id": "control",
+        "interactableInPlayMode": "false",
+        "canGrabPosition": "false",
+        "canGrabRotation": "false",
+        "position": {
+          "x": "0",
+          "y": "0",
+          "z": "0"
+        },
+        "rotation": {
+          "x": "0",
+          "y": "0",
+          "z": "0"
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,241 @@
+[
+  {
+    "id": "$ID",
+    "on": "false",
+    "type": "Empty",
+    "position": {
+      "x": "0.5",
+      "y": "1",
+      "z": "0"
+    },
+    "rotation": {
+      "x": "0",
+      "y": "0",
+      "z": "0"
+    },
+    "containerPosition": {
+      "x": "1.192093E-07",
+      "y": "1.3",
+      "z": "0.2"
+    },
+    "containerRotation": {
+      "x": "0",
+      "y": "180",
+      "z": "0"
+    },
+    "storables": [
+      {
+        "id": "CollisionTrigger",
+        "trigger": {
+          "startActions": [
+          ],
+          "transitionActions": [
+          ],
+          "endActions": [
+          ]
+        }
+      },
+      {
+        "id": "PluginManager",
+        "plugins": {
+          "plugin#0": "Custom/Scripts/FaceCamera.cs"
+        }
+      },
+      {
+        "id": "control",
+        "position": {
+          "x": "1.192093E-07",
+          "y": "1.3",
+          "z": "0.2"
+        },
+        "rotation": {
+          "x": "0",
+          "y": "180",
+          "z": "0"
+        }
+      }
+    ]
+  },
+  {
+    "id": "$ID-StartBtn",
+    "on": "true",
+    "type": "UIButton",
+    "parentAtom": "$ID",
+    "position": {
+      "x": "2",
+      "y": "1.2",
+      "z": "0.2"
+    },
+    "rotation": {
+      "x": "0",
+      "y": "0",
+      "z": "0"
+    },
+    "containerPosition": {
+      "x": "0",
+      "y": "1.3",
+      "z": "0.2"
+    },
+    "containerRotation": {
+      "x": "0",
+      "y": "1.001791E-05",
+      "z": "0"
+    },
+    "storables": [
+      {
+        "id": "AtomControl",
+        "hidden": "true"
+      },
+      {
+        "id": "Preset",
+        "presetName": "blue"
+      },
+      {
+        "id": "CollisionTrigger",
+        "trigger": {
+          "startActions": [
+          ],
+          "transitionActions": [
+          ],
+          "endActions": [
+          ]
+        }
+      },
+      {
+        "id": "Text",
+        "fontSize": "70",
+        "text": "Talk"
+      },
+      {
+        "id": "Canvas",
+        "xSize": "500",
+        "ySize": "140"
+      },
+      {
+        "id": "ButtonColor",
+        "alpha": "0.6999999",
+        "color": {
+          "h": "0.5403522",
+          "s": "0.6444453",
+          "v": "0.7410609"
+        }
+      },
+      {
+        "id": "TextColor",
+        "color": {
+          "h": "0",
+          "s": "0",
+          "v": "1"
+        }
+      },
+      {
+        "id": "Trigger",
+        "trigger": {
+          "startActions": [
+            {
+              "name": "$ID-StartBtn:Play",
+              "receiverAtom": "$ID-Branch#1",
+              "receiver": "AnimationPattern",
+              "receiverTargetName": "Play"
+            },
+            {
+              "name": "$ID-StartBtn:Disabled",
+              "receiverAtom": "$ID-StartBtn",
+              "receiver": "AtomControl",
+              "receiverTargetName": "on",
+              "boolValue": "false"
+            }
+          ],
+          "transitionActions": [
+          ],
+          "endActions": [
+          ]
+        }
+      },
+      {
+        "id": "PluginManager",
+        "plugins": {
+        }
+      },
+      {
+        "id": "control",
+        "canGrabPosition": "false",
+        "canGrabRotation": "false",
+        "position": {
+          "x": "0",
+          "y": "1.3",
+          "z": "0.2"
+        },
+        "rotation": {
+          "x": "0",
+          "y": "1.001791E-05",
+          "z": "0"
+        }
+      }
+    ]
+  },
+  {
+    "id": "$ID-Choices",
+    "on": "false",
+    "type": "Empty",
+    "parentAtom": "$ID",
+    "position": {
+      "x": "1.1",
+      "y": "1.2",
+      "z": "0.2"
+    },
+    "rotation": {
+      "x": "0",
+      "y": "0",
+      "z": "0"
+    },
+    "containerPosition": {
+      "x": "0",
+      "y": "1.3",
+      "z": "0.2"
+    },
+    "containerRotation": {
+      "x": "0",
+      "y": "1.001791E-05",
+      "z": "0"
+    },
+    "storables": [
+      {
+        "id": "AtomControl",
+        "hidden": "true"
+      },
+      {
+        "id": "CollisionTrigger",
+        "trigger": {
+          "startActions": [
+          ],
+          "transitionActions": [
+          ],
+          "endActions": [
+          ]
+        }
+      },
+      {
+        "id": "PluginManager",
+        "plugins": {
+        }
+      },
+      {
+        "id": "control",
+        "interactableInPlayMode": "false",
+        "canGrabPosition": "false",
+        "canGrabRotation": "false",
+        "position": {
+          "x": "0",
+          "y": "1.3",
+          "z": "0.2"
+        },
+        "rotation": {
+          "x": "0",
+          "y": "1.001791E-05",
+          "z": "0"
+        }
+      }
+    ]
+  }
+]

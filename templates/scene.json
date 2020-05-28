@@ -1,0 +1,10 @@
+{
+  "playerHeightAdjust": "0",
+  "monitorCameraRotation": {
+    "x": "0",
+    "y": "0",
+    "z": "0"
+  },
+  "useSceneLoadPosition": "false",
+  "atoms": []
+}

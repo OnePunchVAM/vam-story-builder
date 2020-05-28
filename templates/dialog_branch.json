@@ -1,0 +1,179 @@
+[
+    {
+      "id": "$ID",
+      "on": "true",
+      "type": "AnimationPattern",
+      "parentAtom": "Dialog",
+      "position": {
+        "x": "0.84",
+        "y": "3.26",
+        "z": "0.2"
+      },
+      "rotation": {
+        "x": "0",
+        "y": "0",
+        "z": "0"
+      },
+      "containerPosition": {
+        "x": "0",
+        "y": "1.3",
+        "z": "0.2"
+      },
+      "containerRotation": {
+        "x": "0",
+        "y": "180",
+        "z": "0"
+      },
+      "storables": [
+        {
+          "id": "AtomControl",
+          "hidden": "true"
+        },
+        {
+          "id": "CollisionTrigger",
+          "trigger": {
+            "startActions": [
+            ],
+            "transitionActions": [
+            ],
+            "endActions": [
+            ]
+          }
+        },
+        {
+          "id": "AnimationPattern",
+          "autoPlay": "false",
+          "loopOnce": "true",
+          "steps": [
+            "$ID-Duration"
+          ],
+          "triggers": []
+        },
+        {
+          "id": "PluginManager",
+          "plugins": {
+          }
+        },
+        {
+          "id": "control",
+          "interactableInPlayMode": "false",
+          "canGrabPosition": "false",
+          "canGrabRotation": "false",
+          "position": {
+            "x": "0",
+            "y": "1.3",
+            "z": "0.2"
+          },
+          "rotation": {
+            "x": "0",
+            "y": "180",
+            "z": "0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "$ID-Duration",
+      "on": "true",
+      "type": "AnimationStep",
+      "parentAtom": "$ID",
+      "position": {
+        "x": "1.594135",
+        "y": "3.435646",
+        "z": "0.1771593"
+      },
+      "rotation": {
+        "x": "0",
+        "y": "0",
+        "z": "-8.467909E-11"
+      },
+      "containerPosition": {
+        "x": "-0.2000002",
+        "y": "1.3",
+        "z": "0.2"
+      },
+      "containerRotation": {
+        "x": "0",
+        "y": "180",
+        "z": "0"
+      },
+      "storables": [
+        {
+          "id": "AtomControl",
+          "hidden": "true"
+        },
+        {
+          "id": "CollisionTrigger",
+          "trigger": {
+            "startActions": [
+            ],
+            "transitionActions": [
+            ],
+            "endActions": [
+            ]
+          }
+        },
+        {
+          "id": "Step",
+          "transitionToTime": "0",
+          "trigger": {
+            "startActions": [
+            ],
+            "transitionActions": [
+            ],
+            "endActions": [
+            ]
+          }
+        },
+        {
+          "id": "controlPointIn",
+          "mass": "0.01",
+          "position": {
+            "x": "-0.2000002",
+            "y": "1.3",
+            "z": "0.2"
+          },
+          "rotation": {
+            "x": "7.405306E-25",
+            "y": "180",
+            "z": "-1.433031E-10"
+          }
+        },
+        {
+          "id": "controlPointOut",
+          "mass": "0.01",
+          "position": {
+            "x": "-0.2000002",
+            "y": "1.3",
+            "z": "0.2"
+          },
+          "rotation": {
+            "x": "7.405306E-25",
+            "y": "180",
+            "z": "-1.433031E-10"
+          }
+        },
+        {
+          "id": "PluginManager",
+          "plugins": {
+          }
+        },
+        {
+          "id": "control",
+          "interactableInPlayMode": "false",
+          "canGrabPosition": "false",
+          "canGrabRotation": "false",
+          "position": {
+            "x": "-0.2000002",
+            "y": "1.3",
+            "z": "0.2"
+          },
+          "rotation": {
+            "x": "0",
+            "y": "180",
+            "z": "0"
+          }
+        }
+      ]
+    }
+]
