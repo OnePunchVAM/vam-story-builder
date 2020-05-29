@@ -192,3 +192,5 @@ _tbd_
 ## Dialog System 
 
 _tbd_
+
+Example dialog: https://twinery.org/2/#!/stories/bac4ce2b-79e1-4669-9182-662f7365b7b4
