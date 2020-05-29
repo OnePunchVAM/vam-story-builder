@@ -210,16 +210,13 @@ On top of that it also dynamically creates the correct number of buttons for the
 
 In order to get the button prompts to dynamically select the next branch to play you will need [JayJayWon's ActionGrouper](https://www.patreon.com/posts/actiongrouper-v1-35041756).
 
-### Twine Dialog Structure
-
-Turn this:
+##### Take this:
 
 ![Twine Dialog Overview](/images/twine.jpg)
-
 ![Twine Node Editing](/images/twine_node.png)
 ![Twine Node Editing](/images/twine_node_prompt.png)
 
-And turn it into this:
+##### And turn it into this:
 
 ![Dialog Ingame](/images/dialog_ingame.jpg)
 
