@@ -588,7 +588,6 @@
       {
         "id": "PluginManager",
         "plugins": {
-          "plugin#0": "VeeRifter.AutoLabia.3:/Custom/Scripts/AutoLabia.cs"
         }
       },
       {
@@ -1890,11 +1889,6 @@
             "value": "0.2396255"
           }
         ]
-      },
-      {
-        "id": "plugin#0_VeeRifter.AutoLabia",
-        "Labia Morph Max": "0.3",
-        "pluginLabel": "AutoLabia v3.0 - VeeRifter"
       }
     ]
   }

@@ -599,8 +599,6 @@
         {
           "id": "PluginManager",
           "plugins": {
-            "plugin#1": "AcidBubbles.ImprovedPoV.1:/Custom/Scripts/AcidBubbles/ImprovedPoV/ImprovedPoV.cs",
-            "plugin#0": "vamtaco.AutoCock.3:/Custom/Scripts/vamtaco/AutoCock/AutoCock.cs"
           }
         },
         {
@@ -1906,10 +1904,6 @@
         {
           "id": "Eyes",
           "lookMode": "Target"
-        },
-        {
-          "id": "plugin#0_vamtaco.AutoCock",
-          "Arousal": "1"
         },
         {
           "id": "UrbanMetroShirtMaterial",
