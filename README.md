@@ -137,6 +137,52 @@ VAM/Saves/scene/my-project.scaffold/SceneC.json
 VAM/Saves/scene/my-project.scaffold/my-image.jpg
 ```
 
+#### Advanced Example
+
+*Project Blueprint:* `vam-story-builder/projects/my-advanced-project/blueprint.json` 
+
+```
+{
+    "packages": [
+        "Environment": 1,
+        "Light": 2,
+        "Girl": 1,
+        "Toy": 3
+    ],
+    "scenes": [
+        "SceneA.json",
+        "SceneB.json",
+        {
+            "scene_path": "SceneC.json",
+            "dialog_path": "SceneC_dialog.json"
+        }
+    ]
+}
+```
+
+*Existing Project Files:* None
+
+*Generated Output:*
+
+```
+VAM/Saves/scene/my-advanced-project.scaffold/SceneA.json
+VAM/Saves/scene/my-advanced-project.scaffold/SceneB.json
+VAM/Saves/scene/my-advanced-project.scaffold/SceneC.json
+```
+
+*Scene Atoms*
+
+```
+Environment
+Light
+Light#2
+Girl
+Toy
+Toy#2
+Toy#3
+```
+
+
 
 ### Scene Packaging
 
