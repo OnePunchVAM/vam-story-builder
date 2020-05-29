@@ -108,7 +108,7 @@ All projects are defined with a configuration file `blueprint.json`.  Scenes are
 
 Simply create a directory with the name of your project in `vam-story-builder/projects` and add a `blueprint.json` file.
 
-#### Example
+### Example
 
 **Project Blueprint:** `vam-story-builder/projects/my-project/blueprint.json` 
 
@@ -141,7 +141,7 @@ VAM/Saves/scene/my-project.scaffold/my-image.jpg
 
 
 
-### Scene Packaging
+## Scene Packaging
 
 Built on top of this is the scene packaging system.  This allows you to extract an atom, or group of atoms from a scene and save them as a package.  Look to the `vam-story-builder/templates/packages` folder for examples on what can be done with it.
 
@@ -149,7 +149,7 @@ The best example would be the `Nav` package.  This is a collection of image pane
 
 The added advantage of the package system is the ability to seed many scenes with the same atoms quickly.  Say you needed a story that contained 4 scenes that all had similar assets.  Using the packaging system you would be able to quickly scaffold these scenes with the required atoms in very little time.  Each scene would be consistant and provide an excellent starting point to flesh the scene out.  If you ever need to expand the number of packages or scenes, this can be done at any time while maintaining any work that has been done in the interim.
 
-#### Example
+### Example
 
 **Project Blueprint:** `vam-story-builder/projects/my-project/blueprint.json` 
 
@@ -212,21 +212,21 @@ On top of that it also dynamically creates the correct number of buttons for the
 
 In order to get the button prompts to dynamically select the next branch to play you will need [JayJayWon's ActionGrouper](https://www.patreon.com/posts/actiongrouper-v1-35041756).
 
-##### Take this:
+#### Take this:
 
 ![Twine Node Editing](/images/twine_node.png)
 ![Twine Node Editing](/images/twine_node_prompt.png)
 
-##### And turn it into this:
+#### And turn it into this:
 
 ![Dialog Ingame](/images/dialog_ingame.png)
 
 
-#### Naming
+### Naming
 
 Treat the name of each node as a unique id.  When this tool updates an existing scene to determine if new dialog needs to be added, removed or rewired; it uses the name of each node as it's reference.
 
-#### Tagging
+### Tagging
 
 Tagging is important.  It's tells my script what to do at certain points while building the dialog tree.  Here are some examples of tags that work. 
 
@@ -241,11 +241,11 @@ Tagging is important.  It's tells my script what to do at certain points while b
 `Person#2` `says` `prompt` - atom with id Person#1 gets a ThoughtBubble and the user is shown dialog choices 
 
 
-#### Links
+### Links
 
 Included in the body text of your Twine nodes is where you add references to other nodes for the dialog tree to follow or prompt the user (only if the `prompt` tag is present).
 
-#### Output to JSON
+### Output to JSON
 Once you have your dialog created you will need to export it to json.  In order to do that you will have to add the twinson output format.
 
 Taken from https://github.com/lazerwalker/twison
@@ -253,7 +253,7 @@ Taken from https://github.com/lazerwalker/twison
 > From the Twine 2 story select screen, add a story format, and point it to the url https://lazerwalker.com/twison/format.js.  
 
 
-#### Example
+### Example
 
 **Twine Dialog:** [here](https://twinery.org/2/#!/stories/bac4ce2b-79e1-4669-9182-662f7365b7b4)
 
@@ -303,3 +303,7 @@ Dialog-Branch#3-Duration
 Dialog-Branch#4
 Dialog-Branch#4-Duration
 ```
+
+## License
+
+[MIT](https://github.com/OnePunchVAM/vam-story-builder/blob/master/LICENSE)
