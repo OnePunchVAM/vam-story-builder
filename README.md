@@ -194,19 +194,52 @@ Toy#3
 
 ## Dialog System 
 
-The dialog system uses [Twine](https://twinery.org/2) for writing the dialog and dialog prompts.  It's a simple gui that allows you to map out dialogs in pretty much any way you want.  In order to get it to work with my system I've had to impose some rules that you will need to follow to get the results you want.
+The dialog system uses [Twine](https://twinery.org/2) for writing the dialog and dialog prompts.  It's a simple gui that allows you to map out dialogs in pretty much any way you want.
+
+The architecture behind the dialog system relies on scanning your Twine json and figuring out how many "branches" (ie, nodes before a dialog prompt) there are.
+
+It fully supports keeping scene trees as they originally were.  The entire thing runs on an AnimationPattern per "Branch" of the tree.  Each branch has animation triggers at particular times that fire off new dialog or configure and show the prompt.
+
+You can even modify the existing triggers in the branches and add your own actions (ie, adding custom Timeline animations at particular points in the conversation).
+
+The script intelligently figures out which things to change and what not to.  So you can update the dialog in your Twine dialog tree, pump the new JSON into this tool and it will intelligently update your conversation flows while keeping any changes or additions you have made.
+
+The architecture behind the dialog system relies on scanning your Twine json and figuring out how many "branches" (ie, nodes before a dialog prompt) there are.
+ 
+On top of that it also dynamically creates the correct number of buttons for the maximum amount of choices that can display on the screen at a time.  Button text, color is set via the twine dialog tree.    
+
+In order to get the button prompts to dynamically select the next branch to play you will need [JayJayWon's ActionGrouper](https://www.patreon.com/posts/actiongrouper-v1-35041756).
+
+### Twine Dialog Structure
+
+#### Naming
+
+Treat the name of each node as a unique id.  When this tool updates an existing scene to determine if new dialog needs to be added, removed or rewired; it uses the name of each node as it's reference.
+
+#### Tagging
+
+Tagging is important.  It's tells my script what to do at certain points while building the dialog tree.  Here are some examples of tags that work. 
 
 `delay` `5.0` - do nothing for 5 seconds
  
-`Person#1` `says` - atom with id Person#1 gets a SpeechBubble 
+`Person` `says` - atom with id Person#1 gets a SpeechBubble 
 
-`Person#1` `thinks` - atom with id Person#1 gets a ThoughtBubble
+`Person#3` `thinks` - atom with id Person#1 gets a ThoughtBubble
 
-`Person#1` `says` `6.4` - atom with id Person#1 gets a SpeechBubble with a Lifetime of 5 seconds
+`Person` `says` `6.4` - atom with id Person#1 gets a SpeechBubble with a Lifetime of 5 seconds
 
-#### Dependencies
+`Person#2` `says` `prompt` - atom with id Person#1 gets a ThoughtBubble and the user is shown dialog choices 
 
-In order to get the button prompts to dynamically select the next branch to play you will need [JayJayWon's ActionGrouper](https://www.patreon.com/posts/actiongrouper-v1-35041756).
+#### Links
+
+Included in the body text of your Twine nodes is where you add references to other nodes for the dialog tree to follow or prompt the user (only if the `prompt` tag is present).
+
+#### Output to JSON
+Once you have your dialog created you will need to export it to json.  In order to do that you will have to add the twinson output format.
+
+Taken from https://github.com/lazerwalker/twison
+
+> From the Twine 2 story select screen, add a story format, and point it to the url https://lazerwalker.com/twison/format.js.  
 
 
 #### Example
