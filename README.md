@@ -19,6 +19,7 @@ This is a command line tool that uses configuration files to create/update scene
 1. Download the latest zip from the [releases page](https://github.com/OnePunchVAM/vam-story-builder/releases) and extract it to somewhere on your computer.
 2. Navigate to the extracted directory `vam-story-builder`.
 3. Edit `config.json` and make sure `VAM_PATH` matches the install location of your VAM application.
+4. Copy dependencies in `vam-story-builder/AddonPackages` into your VAM folder `VAM/AddonPackages`.
 
 > It's important to note that the double backslashes `\\` in the path are required since it's a json file.
 
