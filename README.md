@@ -210,7 +210,7 @@ The architecture behind the dialog system relies on scanning your Twine json and
  
 On top of that it also dynamically creates the correct number of buttons for the maximum amount of choices that can display on the screen at a time.  Button text, color is set via the twine dialog tree.    
 
-In order to get the button prompts to dynamically select the next branch to play you will need [JayJayWon's ActionGrouper](https://www.patreon.com/posts/actiongrouper-v1-35041756).
+In order to get the button prompts to dynamically select the next branch to play you will need [JayJayWon's ActionGrouper](https://www.patreon.com/posts/actiongrouper-v1-35387904).
 
 #### Take this:
 
