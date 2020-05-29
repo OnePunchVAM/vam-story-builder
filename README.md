@@ -212,6 +212,18 @@ In order to get the button prompts to dynamically select the next branch to play
 
 ### Twine Dialog Structure
 
+Turn this:
+
+![Twine Dialog Overview](/images/twine.jpg)
+
+![Twine Node Editing](/images/twine_node.png)
+![Twine Node Editing](/images/twine_node_prompt.png)
+
+And turn it into this:
+
+![Dialog Ingame](/images/dialog_ingame.jpg)
+
+
 #### Naming
 
 Treat the name of each node as a unique id.  When this tool updates an existing scene to determine if new dialog needs to be added, removed or rewired; it uses the name of each node as it's reference.
