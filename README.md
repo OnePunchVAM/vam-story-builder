@@ -298,6 +298,8 @@ Girl
 Dialog
 Dialog-StartBtn
 Dialog-Choices
+Dialog-Choices-Btn#1
+Dialog-Choices-Btn#2
 Dialog-Branch#1
 Dialog-Branch#1-Duration
 Dialog-Branch#2
