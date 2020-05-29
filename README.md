@@ -219,7 +219,7 @@ In order to get the button prompts to dynamically select the next branch to play
 
 ##### And turn it into this:
 
-![Dialog Ingame](/images/dialog_ingame.jpg)
+![Dialog Ingame](/images/dialog_ingame.png)
 
 
 #### Naming
@@ -239,6 +239,7 @@ Tagging is important.  It's tells my script what to do at certain points while b
 `Person` `says` `6.4` - atom with id Person#1 gets a SpeechBubble with a Lifetime of 5 seconds
 
 `Person#2` `says` `prompt` - atom with id Person#1 gets a ThoughtBubble and the user is shown dialog choices 
+
 
 #### Links
 
