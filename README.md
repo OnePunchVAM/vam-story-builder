@@ -10,6 +10,8 @@ This is a command line tool that uses configuration files to create/update scene
 * *Project Scaffolding* - Quickly build scene templates with pre-configured atoms.
 * *Dialog System* - Uses JSON generated from [Twine](https://twinery.org/2) to create dynamic dialog trees.
 
+![Twine Dialog Overview](/images/twine.jpg)
+
 ### Install
 
 1. Download the latest zip from the [releases page](https://github.com/OnePunchVAM/vam-story-builder/releases) and extract it to somewhere on your computer.
@@ -212,7 +214,6 @@ In order to get the button prompts to dynamically select the next branch to play
 
 ##### Take this:
 
-![Twine Dialog Overview](/images/twine.jpg)
 ![Twine Node Editing](/images/twine_node.png)
 ![Twine Node Editing](/images/twine_node_prompt.png)
 
