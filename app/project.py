@@ -10,6 +10,8 @@ from .vam.scene import Scene
 from .vam.atom import Atom
 from .dialog import Dialog
 
+import logging
+
 IGNORE_ATOMS = ['AnimationStep']
 
 
@@ -45,38 +47,52 @@ class Project(object):
     def scaffold(self):
         # Delete existing build path
         if os.path.exists(self.build_path):
+            logging.warning("Deleting build path: %s" % self.build_path)
             shutil.rmtree(self.build_path)
 
         # Copy source files to build path (if applicable)
         if os.path.isdir(self.source_path):
+            logging.info("Transferring scene files: %s -> %s" % (self.source_path, self.build_path))
             shutil.copytree(self.source_path, self.build_path)
 
         # Get all atoms to pack into scenes
         package_atoms = self.get_package_atoms()
+        logging.info("Found %d package atoms." % len(package_atoms))
 
         # Get all scenes required to scaffold
         scenes = self.get_scenes()
+        logging.info("Found %d scenes." % len(scenes))
 
         # Scan scenes for unspecified atoms (atoms that exist in one scene but not it's siblings)
         backfill_atoms = self.get_backfill_atoms(scenes, package_atoms)
+        logging.info("Found %d atoms to backfill into scenes." % len(backfill_atoms))
 
         # Get all dialog branch atoms to prefill scenes with
         dialog_atoms = self.get_dialog_atoms(scenes)
+        logging.info("Found %d dialog atoms to add to scenes." % len(dialog_atoms))
 
         # Backfill discovered atoms into scenes
-        self.pack_scenes(scenes, backfill_atoms)
+        if len(backfill_atoms):
+            logging.info("Backfill discovered atoms into scenes..")
+            self.pack_scenes(scenes, backfill_atoms)
 
         # Scan scenes for missing packages and pack them into scenes
-        self.pack_scenes(scenes, package_atoms)
+        if len(package_atoms):
+            logging.info("Scan scenes for missing packages and pack them into scenes..")
+            self.pack_scenes(scenes, package_atoms)
 
         # Prefill scenes with dialog branch atoms
-        self.pack_scenes(scenes, dialog_atoms)
+        if len(dialog_atoms):
+            logging.info("Pack dialog atoms into scenes..")
+            self.pack_scenes(scenes, dialog_atoms)
 
-        # Generate animation pattern atoms from twinery dialog trees and
-        # merge dialog animation patterns into relevant scenes (preserving existing triggers)
-        self.build_dialog(scenes)
+            # Generate animation pattern atoms from twinery dialog trees and
+            # merge dialog animation patterns into relevant scenes (preserving existing triggers)
+            logging.info("Update dialog tree(s), triggers and actions..")
+            self.build_dialog(scenes)
 
         # Save all scenes last
+        logging.info("Saving scenes to build path: %s" % self.build_path)
         self.save_scenes(scenes)
 
     def save_scenes(self, scenes):
@@ -85,6 +101,7 @@ class Project(object):
             scene_path = scene_path.replace('/', os.sep).replace('\\', os.sep)
             pathlib.Path(os.path.dirname(scene_path)).mkdir(parents=True, exist_ok=True)
             json.dump(scene.build(), open(scene_path, 'w'))
+            logging.info("Saved scene: %s" % scene_path)
 
     def pack_scenes(self, scenes, atoms):
         for scene in scenes.values():
@@ -124,6 +141,9 @@ class Project(object):
         # Build scaffolding for dialog choices
         for idx in range(self.dialog_choice_count_max):
             atoms.update(Dialog.scaffold_choice(self.templates_path, idx))
+
+        logging.info("Maximum possible dialog branches per scene: %s" % self.dialog_branch_count_max)
+        logging.info("Maximum possible dialog choices per scene: %s" % self.dialog_choice_count_max)
 
         return atoms
 
@@ -171,7 +191,8 @@ class Project(object):
                 raise Exception("Invalid scene path specified in config: %s" % scene_path)
             dialog = None
             if scene_config.get('dialog_path'):
-                dialog_path = os.path.join(self.projects_path, self.name, scene_config.get('dialog_path'))
+                dialog_path = os.path.join(self.projects_path, self.name, scene_config.get('dialog_path')) \
+                    .replace('/', os.sep).replace('\\', os.sep)
                 dialog = Dialog(self.templates_path, dialog_path)
             if scene_config.get('exists'):
                 abs_scene_path = os.path.join(self.build_path, scene_path).replace('/', os.sep).replace('\\', os.sep)

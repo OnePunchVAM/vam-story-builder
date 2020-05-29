@@ -5,6 +5,8 @@ import copy
 
 from .vam.atom import Atom
 
+import logging
+
 NAME_PREFIX = 'D'
 
 DEFAULT_START_TIME = 0.1
@@ -78,6 +80,7 @@ class Dialog(object):
         passages = self.data.get('passages')
         self.starting_passage = passages[0]
         self.passages = {x.get('name'): x for x in passages[1:]} if len(passages) > 1 else {}
+        logging.info("Dialog loaded with %d passages: %s" % (len(self.passages), dialog_file))
 
     @staticmethod
     def scaffold_containers(templates_path):
@@ -111,6 +114,7 @@ class Dialog(object):
         existing_branch_id = self.processed_passages.get(passage.get('name'))
         if existing_branch_id:
             return existing_branch_id
+        logging.info("Building dialog branch: %s" % passage.get('name'))
         self.branch_idx += 1
         branch_id = '%s#%d' % (ATOM_BRANCH, self.branch_idx)
         self.processed_passages.update({passage.get('name'): branch_id})
@@ -147,6 +151,8 @@ class Dialog(object):
         except Exception:
             raise Exception("Malformed tags in passage '%s'" % passage.get('name'))
 
+        logging.info("[%s] Discovered node: %s" % (passage.get('name'), ' '.join(tags)))
+
         # Figure out start and end times
         end_time = start_time + duration + DEFAULT_MESSAGE_BUFFER
         trigger['startTime'] = str(start_time)
@@ -164,7 +170,10 @@ class Dialog(object):
         if len(links) == 0:
             trigger['startActions'] += self.get_restart_actions()
         elif prompt:
+            logging.info("Found dialog prompt with %d responses." % len(links))
             trigger['startActions'] += self.get_prompt_actions()
+            for link in links:
+                logging.info("%s: %s -> %s" % (link['color'], link['safe_name'], link['link']))
 
         # Append trigger to list
         triggers.append(trigger)

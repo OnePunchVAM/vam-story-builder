@@ -4,3 +4,4 @@ build
 .idea
 
 config.json
+output.log
