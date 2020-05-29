@@ -151,7 +151,7 @@ class Project(object):
     def get_scenes(self):
         # Get list of all scenes, both existing and those specified in config
         scene_template = json.load(open(os.path.join(self.templates_path, 'scene.json'), 'r'))
-        project_scenes = {x.get('scene_path'): x for x in self.config.get('scenes', [])}
+        project_scenes = {x if isinstance(x, str) else x.get('scene_path'): x for x in self.config.get('scenes', [])}
         existing_scene_paths = [y for x in os.walk(self.build_path) for y in glob(os.path.join(x[0], '*.json'))]
         for scene_path in existing_scene_paths:
             rel_scene_path = scene_path.replace(self.build_path + os.sep, '')

@@ -26,19 +26,39 @@ CHOICE_COLORS = {
         "v": "0.2029198"
     },
     'TEAL': {
-        "h": "0.5403522",
+        "h": "0.4894297",
+        "s": "0.6444453",
+        "v": "0.7410609"
+    },
+    'GREEN': {
+        "h": "0.3586576",
+        "s": "0.6444453",
+        "v": "0.7410609"
+    },
+    'RED': {
+        "h": "0",
+        "s": "0.6444453",
+        "v": "0.7410609"
+    },
+    'PURPLE': {
+        "h": "0.7690026",
+        "s": "0.6444453",
+        "v": "0.7410609"
+    },
+    'YELLOW': {
+        "h": "0.1749429",
         "s": "0.6444453",
         "v": "0.7410609"
     },
     'BLUE': {
-        "h": "0.6382353",
-        "s": "0.6910569",
-        "v": "0.9647059"
+        "h": "0.6082565",
+        "s": "0.6444453",
+        "v": "0.7410609"
     },
     'PINK': {
-        "h": "0.8166949",
-        "s": "0.6910569",
-        "v": "0.9647059"
+        "h": "0.8668843",
+        "s": "0.6444453",
+        "v": "0.7410609"
     }
 }
 
@@ -61,7 +81,7 @@ class Dialog(object):
 
     @staticmethod
     def scaffold_containers(templates_path):
-        template = open(os.path.join(templates_path, 'dialog.json'), 'r').read()\
+        template = open(os.path.join(templates_path, 'dialog.json'), 'r').read() \
             .replace('$ID', ATOM_DIALOG)
         return {x.get('id'): Atom(x) for x in json.loads(template)}
 
@@ -69,7 +89,7 @@ class Dialog(object):
     def scaffold_branch(templates_path, index):
         # Create dialog branch from template
         atom_id = '%s#%d' % (ATOM_BRANCH, index + 1)
-        template = open(os.path.join(templates_path, 'dialog_branch.json'), 'r').read()\
+        template = open(os.path.join(templates_path, 'dialog_branch.json'), 'r').read() \
             .replace('$ID', atom_id)
         return {x.get('id'): Atom(x) for x in json.loads(template)}
 
@@ -78,7 +98,7 @@ class Dialog(object):
         # Create dialog choice from template
         position = CHOICE_STARTING_Y - CHOICE_GAP * index
         atom_id = '%s#%d' % (ATOM_CHOICE, index + 1)
-        template = open(os.path.join(templates_path, 'dialog_choice.json'), 'r').read()\
+        template = open(os.path.join(templates_path, 'dialog_choice.json'), 'r').read() \
             .replace('$ID', atom_id).replace('$POSITION', '%s' % str(position))
         return {x.get('id'): Atom(x) for x in json.loads(template)}
 
