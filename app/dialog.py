@@ -354,6 +354,7 @@ class Dialog(object):
             if tags[1].lower() not in ['says', 'thinks']:
                 raise Exception()
             receiver = "SpeechBubble" if tags[1].lower() == 'says' else "ThoughtBubble"
-            if len(tags) > 2 and not prompt:
+            if len(tags) > 2:
                 duration = float(tags[2])
+
         return target, receiver, duration, prompt

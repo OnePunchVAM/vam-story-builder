@@ -105,10 +105,10 @@
       ]
     },
     {
-      "text": "I'm going to edge away reaaallly slowly.. if I don't make any sudden moves he won't suspect a thing!\n\n[[*ignore her*->007]]\n[[Hey where are you going?->006]]",
+      "text": "I'm going to edge away reaaallly slowly.. if I don't make any sudden moves he won't suspect a thing!\n\n[[*delay for 5 seconds*->007]]\n[[Hey where are you going?->006]]",
       "links": [
         {
-          "name": "*ignore her*",
+          "name": "*delay for 5 seconds*",
           "link": "007",
           "pid": "8"
         },
