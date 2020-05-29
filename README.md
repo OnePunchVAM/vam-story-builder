@@ -50,7 +50,7 @@ CeilingLight (InvisibleLight)
 Environment (CustomUnityAsset)
 ``` 
 
-In this situation if you were to load *SceneA* normally, then merge-load *SceneB* you would end up with the following result.
+In this situation if you were to load **SceneA** normally, then merge-load **SceneB** you would end up with the following result.
 
 ```
 MergedScene
@@ -63,11 +63,11 @@ CeilingLight (InvisibleLight)
 Environment (CustomUnityAsset)
 ```
 
-As you can tell there are a number of issues here.  We wanted to load *SceneB* but due to how merge-load works we ended up with atoms in the scene that we didn't intend for.  This problem compounds with each merge-load you do, ending up with a spaghetti mess of atoms in your scene.
+As you can tell there are a number of issues here.  We wanted to load **SceneB** but due to how merge-load works we ended up with atoms in the scene that we didn't intend for.  This problem compounds with each merge-load you do, ending up with a spaghetti mess of atoms in your scene.
 
 ### The Solution
 
-To combat this problem, VAM Story Builder will take all the scenes in a project and compare their atoms.  It then *creates new scene files* with all atoms from sibling scenes but hidden.
+To combat this problem, VAM Story Builder will take all the scenes in a project and compare their atoms.  It then **creates new scene files** with all atoms from sibling scenes but hidden.
 
 
 ```
@@ -108,19 +108,19 @@ Simply create a directory with the name of your project in `vam-story-builder/pr
 
 #### Example
 
-*Project Blueprint:* `vam-story-builder/projects/my-project/blueprint.json` 
+**Project Blueprint:** `vam-story-builder/projects/my-project/blueprint.json` 
 
 ```
 {
-    "scenes": [
-        "SceneA.json",
-        "SceneB.json",
-        "SceneC.json
-    ]
+  "scenes": [
+    "SceneA.json",
+    "SceneB.json",
+    "SceneC.json
+  ]
 }
 ```
 
-*Existing Project Files:*
+**Existing Project Files:**
 
 ```
 VAM/Saves/scene/my-project/SceneA.json
@@ -128,7 +128,7 @@ VAM/Saves/scene/my-project/SceneB.json
 VAM/Saves/scene/my-project/my-image.jpg
 ```
 
-*Generated Output:*
+**Generated Output:**
 
 ```
 VAM/Saves/scene/my-project.scaffold/SceneA.json
@@ -137,40 +137,49 @@ VAM/Saves/scene/my-project.scaffold/SceneC.json
 VAM/Saves/scene/my-project.scaffold/my-image.jpg
 ```
 
-#### Advanced Example
 
-*Project Blueprint:* `vam-story-builder/projects/my-advanced-project/blueprint.json` 
+
+### Scene Packaging
+
+Built on top of this is the scene packaging system.  This allows you to extract an atom, or group of atoms from a scene and save them as a package.  Look to the `vam-story-builder/templates/packages` folder for examples on what can be done with it.
+
+The best example would be the `Nav` package.  This is a collection of image panels, buttons and text all aligned in a way that creates a large menu (similar to the EasyMate main menu).
+
+The added advantage of the package system is the ability to seed many scenes with the same atoms quickly.  Say you needed a story that contained 4 scenes that all had similar assets.  Using the packaging system you would be able to quickly scaffold these scenes with the required atoms in very little time.  Each scene would be consistant and provide an excellent starting point to flesh the scene out.  If you ever need to expand the number of packages or scenes, this can be done at any time while maintaining any work that has been done in the interim.
+
+#### Example
+
+**Project Blueprint:** `vam-story-builder/projects/my-project/blueprint.json` 
 
 ```
 {
-    "packages": [
-        "Environment": 1,
-        "Light": 2,
-        "Girl": 1,
-        "Toy": 3
-    ],
-    "scenes": [
-        "SceneA.json",
-        "SceneB.json",
-        {
-            "scene_path": "SceneC.json",
-            "dialog_path": "SceneC_dialog.json"
-        }
-    ]
+  "packages": [
+    "Environment": 1,
+    "Light": 2,
+    "Girl": 1,
+    "Toy": 3
+  ],
+  "scenes": [
+    "SceneA.json",
+    "SceneB.json",
+    "SceneC.json",
+    "SceneD.json"
+  ]
 }
 ```
 
-*Existing Project Files:* None
+**Existing Project Files:** None
 
-*Generated Output:*
+**Generated Output:**
 
 ```
-VAM/Saves/scene/my-advanced-project.scaffold/SceneA.json
-VAM/Saves/scene/my-advanced-project.scaffold/SceneB.json
-VAM/Saves/scene/my-advanced-project.scaffold/SceneC.json
+VAM/Saves/scene/my-project.scaffold/SceneA.json
+VAM/Saves/scene/my-project.scaffold/SceneB.json
+VAM/Saves/scene/my-project.scaffold/SceneC.json
+VAM/Saves/scene/my-project.scaffold/SceneD.json
 ```
 
-*Scene Atoms*
+**Scene Atoms**
 
 ```
 Environment
@@ -183,14 +192,70 @@ Toy#3
 ```
 
 
-
-### Scene Packaging
-
-_tbd_
-
-
 ## Dialog System 
 
-_tbd_
+The dialog system uses [Twine](https://twinery.org/2) for writing the dialog and dialog prompts.  It's a simple gui that allows you to map out dialogs in pretty much any way you want.  In order to get it to work with my system I've had to impose some rules that you will need to follow to get the results you want.
 
-Example dialog: https://twinery.org/2/#!/stories/bac4ce2b-79e1-4669-9182-662f7365b7b4
+`delay` `5.0` - do nothing for 5 seconds
+ 
+`Person#1` `says` - atom with id Person#1 gets a SpeechBubble 
+
+`Person#1` `thinks` - atom with id Person#1 gets a ThoughtBubble
+
+`Person#1` `says` `6.4` - atom with id Person#1 gets a SpeechBubble with a Lifetime of 5 seconds
+
+#### Dependencies
+
+In order to get the button prompts to dynamically select the next branch to play you will need [JayJayWon's ActionGrouper](https://www.patreon.com/posts/actiongrouper-v1-35041756).
+
+
+#### Example
+
+**Twine Dialog:** [here](https://twinery.org/2/#!/stories/bac4ce2b-79e1-4669-9182-662f7365b7b4)
+
+**Project Blueprint:** `vam-story-builder/projects/my-project/blueprint.json` 
+
+```
+{
+  "packages": [
+    "Environment": 1,
+    "Light": 1,
+    "Girl": 1
+  ],
+  "scenes": [
+    {
+      "scene_path": "SceneA.json",
+      "dialog_path": "SceneA_dialog.json"
+    }
+  ]
+}
+```
+
+**Existing Project Files:** None
+
+**Generated Output:**
+
+```
+VAM/Saves/scene/my-project.scaffold/SceneA.json
+```
+
+**Scene Atoms**
+
+> *Assuming the dialog file `SceneA_dialog.json` had a maximum of 2 choices for dialog prompts and 4 dialog branches.*
+
+```
+Environment
+Light
+Girl
+Dialog
+Dialog-StartBtn
+Dialog-Choices
+Dialog-Branch#1
+Dialog-Branch#1-Duration
+Dialog-Branch#2
+Dialog-Branch#2-Duration
+Dialog-Branch#3
+Dialog-Branch#3-Duration
+Dialog-Branch#4
+Dialog-Branch#4-Duration
+```
