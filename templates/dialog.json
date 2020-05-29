@@ -20,7 +20,7 @@
     },
     "containerRotation": {
       "x": "0",
-      "y": "180",
+      "y": "0",
       "z": "0"
     },
     "storables": [
@@ -38,6 +38,7 @@
       {
         "id": "PluginManager",
         "plugins": {
+          "plugin#0" : "OnePunchVAM.FaceCamera.1:/Custom/Scripts/FaceCamera.cs"
         }
       },
       {
@@ -49,7 +50,7 @@
         },
         "rotation": {
           "x": "0",
-          "y": "180",
+          "y": "0",
           "z": "0"
         }
       }
