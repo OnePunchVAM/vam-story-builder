@@ -243,7 +243,11 @@ Tagging is important.  It's tells my script what to do at certain points while b
 
 ### Links
 
-Included in the body text of your Twine nodes is where you add references to other nodes for the dialog tree to follow or prompt the user (only if the `prompt` tag is present).
+Included in the body text of your Twine nodes is where you add references to other nodes for the dialog tree to follow or prompt the user (only if the `prompt` tag is present).  If a node is a prompt, then you have color options when specifying the link.
+
+A dialog prompt buttons default to blue unless specfied otherwise.  Specify a color for the dialog prompt by specifying the color before the link itself (ie, `[[PINK:Can I lick the spoon?->001]]`).
+
+Here are a list of available colors: `BLACK`, `BLUE`, `TEAL`, `GREEN`, `RED`, `PURPLE`, `YELLOW` and `PINK`.
 
 ### Output to JSON
 Once you have your dialog created you will need to export it to json.  In order to do that you will have to add the twinson output format.
