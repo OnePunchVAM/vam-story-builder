@@ -1,7 +1,7 @@
 [
   {
     "id": "$ID",
-    "on": "true",
+    "on": "false",
     "collisionEnabled": "false",
     "type": "Person",
     "position": {
