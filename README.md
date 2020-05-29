@@ -310,6 +310,22 @@ Dialog-Branch#4
 Dialog-Branch#4-Duration
 ```
 
+## Building the Source
+
+Requires Python 3.8+.  Make sure you have the [cx_freeze](https://anthony-tuininga.github.io/cx_Freeze/) python library installed.
+
+```
+$ python -m pip install cx_Freeze --upgrade
+```
+
+Then it's a simple matter of running the build process.
+
+```
+$ python setup.py build
+```
+
+Binaries are outputted to the `build` directory.
+
 ## License
 
 [MIT](https://github.com/OnePunchVAM/vam-story-builder/blob/master/LICENSE)
