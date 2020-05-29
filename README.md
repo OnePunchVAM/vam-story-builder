@@ -10,6 +10,8 @@ This is a command line tool that uses configuration files to create/update scene
 * *Project Scaffolding* - Quickly build scene templates with pre-configured atoms.
 * *Dialog System* - Uses JSON generated from [Twine](https://twinery.org/2) to create dynamic dialog trees.
 
+**Example on Twinery:** [here](https://twinery.org/2/#!/stories/6524b545-adf8-4eb8-8e35-c369ddfd0868)
+
 ![Twine Dialog Overview](/images/twine.jpg)
 
 ### Install
@@ -256,10 +258,7 @@ Taken from https://github.com/lazerwalker/twison
 
 > From the Twine 2 story select screen, add a story format, and point it to the url https://lazerwalker.com/twison/format.js.  
 
-
 ### Example
-
-**Twine Dialog:** [here](https://twinery.org/2/#!/stories/bac4ce2b-79e1-4669-9182-662f7365b7b4)
 
 **Project Blueprint:** `vam-story-builder/projects/my-project/blueprint.json` 
 
