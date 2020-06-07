@@ -10,7 +10,7 @@ import logging
 NAME_PREFIX = 'D'
 
 DEFAULT_START_TIME = 0.1
-DEFAULT_DURATION = 2.0
+DEFAULT_DURATION = 3.0
 DEFAULT_MESSAGE_BUFFER = 0.4
 DEFAULT_PROMPT_BUFFER = 0.2
 
@@ -345,7 +345,7 @@ class Dialog(object):
         duration = DEFAULT_DURATION
         prompt = tags[-1] == 'prompt'
         if tags[0].lower() == 'delay':
-            if len(tags) > 1:
+            if len(tags) > 1 and not prompt:
                 duration = float(tags[1])
         else:
             if len(tags) == 1:
@@ -354,7 +354,7 @@ class Dialog(object):
             if tags[1].lower() not in ['says', 'thinks']:
                 raise Exception()
             receiver = "SpeechBubble" if tags[1].lower() == 'says' else "ThoughtBubble"
-            if len(tags) > 2:
+            if len(tags) > 2 and not prompt:
                 duration = float(tags[2])
 
         return target, receiver, duration, prompt
