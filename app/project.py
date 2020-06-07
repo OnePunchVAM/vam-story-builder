@@ -174,15 +174,16 @@ class Project(object):
         project_scenes = {}
         for scene in self.config.get('scenes', []):
             if isinstance(scene, str):
-                project_scenes.update({scene: {'scene_path': scene}})
+                scene_path = scene.replace('/', os.sep).replace('\\', os.sep)
+                project_scenes.update({scene_path: {'scene_path': scene}})
             else:
-                project_scenes.update({scene.get('scene_path'): scene})
-        existing_scene_paths = [y for x in os.walk(self.build_path) for y in glob(os.path.join(x[0], '*.json'))]
-        for scene_path in existing_scene_paths:
-            rel_scene_path = scene_path.replace(self.build_path + os.sep, '')
-            if rel_scene_path not in project_scenes.keys():
-                project_scenes.update({rel_scene_path: {'scene_path': rel_scene_path}})
-            project_scenes.get(rel_scene_path)['exists'] = True
+                scene_path = scene.get('scene_path').replace('/', os.sep).replace('\\', os.sep)
+                project_scenes.update({scene_path: scene})
+
+        # Find existing scene files
+        existing_scene_paths = [y.replace(self.build_path + os.sep, '')
+                                for x in os.walk(self.build_path)
+                                for y in glob(os.path.join(x[0], '*.json'))]
 
         # Build out scene objects and corresponding dialog
         scenes = {}
@@ -194,7 +195,7 @@ class Project(object):
                 dialog_path = os.path.join(self.projects_path, self.name, scene_config.get('dialog_path')) \
                     .replace('/', os.sep).replace('\\', os.sep)
                 dialog = Dialog(self.templates_path, dialog_path)
-            if scene_config.get('exists'):
+            if scene_path in existing_scene_paths:
                 abs_scene_path = os.path.join(self.build_path, scene_path).replace('/', os.sep).replace('\\', os.sep)
                 scene_data = json.load(open(abs_scene_path, 'r'))
             else:

@@ -131,7 +131,7 @@ class Dialog(object):
     def build_trigger(self, scene, passage, existing_triggers, start_time=DEFAULT_START_TIME):
         triggers = list()
         trigger_name = '%s:%s' % (NAME_PREFIX, passage.get('name'))
-        if trigger_name not in existing_triggers:
+        if trigger_name not in existing_triggers.keys():
             trigger = json.load(open(os.path.join(self.templates_path, 'trigger.json'), 'r'))
             trigger['displayName'] = trigger_name
         else:
@@ -151,16 +151,16 @@ class Dialog(object):
         except Exception:
             raise Exception("Malformed tags in passage '%s'" % passage.get('name'))
 
-        logging.info("[%s] Discovered node: %s" % (passage.get('name'), ' '.join(tags)))
+        # Clean message content
+        links = self.fix_links(passage.get('links', []))
+        content = re.sub(r'\[\[[^\]]+\]\]', '', passage.get('text')).strip()
+
+        logging.info("[%s] %s: \"%s\"" % (trigger_name, ' '.join(tags), content))
 
         # Figure out start and end times
         end_time = start_time + duration + DEFAULT_MESSAGE_BUFFER
         trigger['startTime'] = str(start_time)
         trigger['endTime'] = str(start_time + DEFAULT_PROMPT_BUFFER) if prompt else str(end_time)
-
-        # Clean message content
-        links = self.fix_links(passage.get('links', []))
-        content = re.sub(r'\[\[[^\]]+\]\]', '', passage.get('text')).strip()
 
         # Create actions and add to trigger
         if target and receiver:
@@ -173,7 +173,7 @@ class Dialog(object):
             logging.info("Found dialog prompt with %d responses." % len(links))
             trigger['startActions'] += self.get_prompt_actions()
             for link in links:
-                logging.info("%s: %s -> %s" % (link['color'], link['safe_name'], link['link']))
+                logging.info("[%s] %s: %s -> %s" % (trigger_name, link['color'], link['safe_name'], link['link']))
 
         # Append trigger to list
         triggers.append(trigger)
