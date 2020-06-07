@@ -63,28 +63,28 @@ class Project(object):
         scenes = self.get_scenes()
         logging.info("Found %d scenes." % len(scenes))
 
-        # Scan scenes for unspecified atoms (atoms that exist in one scene but not it's siblings)
-        backfill_atoms = self.get_backfill_atoms(scenes, package_atoms)
-        logging.info("Found %d atoms to backfill into scenes." % len(backfill_atoms))
-
         # Get all dialog branch atoms to prefill scenes with
         dialog_atoms = self.get_dialog_atoms(scenes)
         logging.info("Found %d dialog atoms to add to scenes." % len(dialog_atoms))
 
+        # Prefill scenes with dialog branch atoms
+        if len(dialog_atoms):
+            logging.info("Pack dialog atoms into scenes..")
+            self.pack_scenes(scenes, dialog_atoms)
+
+        # Scan scenes for unspecified atoms (atoms that exist in one scene but not it's siblings)
+        backfill_atoms = self.get_backfill_atoms(scenes, package_atoms)
+        logging.info("Found %d atoms to backfill into scenes." % len(backfill_atoms))
+
         # Backfill discovered atoms into scenes
         if len(backfill_atoms):
-            logging.info("Backfill discovered atoms into scenes..")
+            logging.info("Pack discovered atoms into scenes..")
             self.pack_scenes(scenes, backfill_atoms)
 
         # Scan scenes for missing packages and pack them into scenes
         if len(package_atoms):
             logging.info("Scan scenes for missing packages and pack them into scenes..")
             self.pack_scenes(scenes, package_atoms)
-
-        # Prefill scenes with dialog branch atoms
-        if len(dialog_atoms):
-            logging.info("Pack dialog atoms into scenes..")
-            self.pack_scenes(scenes, dialog_atoms)
 
             # Generate animation pattern atoms from twinery dialog trees and
             # merge dialog animation patterns into relevant scenes (preserving existing triggers)
