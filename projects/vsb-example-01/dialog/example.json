@@ -1,0 +1,213 @@
+{
+  "passages": [
+    {
+      "text": "Hi!\n\n[[001]]",
+      "links": [
+        {
+          "name": "001",
+          "link": "001",
+          "pid": "3"
+        }
+      ],
+      "name": "Start",
+      "pid": "1",
+      "position": {
+        "x": "595",
+        "y": "143.5"
+      },
+      "tags": [
+        "Guy",
+        "says"
+      ]
+    },
+    {
+      "text": "I wonder if he's single?\n\n[[006]]",
+      "links": [
+        {
+          "name": "006",
+          "link": "006",
+          "pid": "7"
+        }
+      ],
+      "name": "002",
+      "pid": "2",
+      "position": {
+        "x": "507",
+        "y": "573.5"
+      },
+      "tags": [
+        "Girl",
+        "thinks",
+        "5"
+      ]
+    },
+    {
+      "text": "Hey! I'm Julia.  What's your name?\n\n[[TEAL:Timmahy!->005]]\n[[RED:Bond.. James Bond->002]]\n[[PINK:I'm whoever you want me to be baby!->003]]\n[[BLACK:I'M BATMAN!->004]]\n[[Leave->008]]",
+      "links": [
+        {
+          "name": "TEAL:Timmahy!",
+          "link": "005",
+          "pid": "6"
+        },
+        {
+          "name": "RED:Bond.. James Bond",
+          "link": "002",
+          "pid": "2"
+        },
+        {
+          "name": "PINK:I'm whoever you want me to be baby!",
+          "link": "003",
+          "pid": "4"
+        },
+        {
+          "name": "BLACK:I'M BATMAN!",
+          "link": "004",
+          "pid": "5"
+        },
+        {
+          "name": "Leave",
+          "link": "008",
+          "pid": "9"
+        }
+      ],
+      "name": "001",
+      "pid": "3",
+      "position": {
+        "x": "737",
+        "y": "326.5"
+      },
+      "tags": [
+        "Girl",
+        "says",
+        "8.2",
+        "prompt"
+      ]
+    },
+    {
+      "text": "Ewwww! Groosss!  Get away from me you creep!\n\n[[006]]",
+      "links": [
+        {
+          "name": "006",
+          "link": "006",
+          "pid": "7"
+        }
+      ],
+      "name": "003",
+      "pid": "4",
+      "position": {
+        "x": "740",
+        "y": "519.5"
+      },
+      "tags": [
+        "Girl",
+        "says",
+        "4.2"
+      ]
+    },
+    {
+      "text": "I'm going to edge away reaaallly slowly.. if I don't make any sudden moves he won't suspect a thing!\n\n[[*delay for 5 seconds*->007]]\n[[Hey where are you going?->006]]",
+      "links": [
+        {
+          "name": "*delay for 5 seconds*",
+          "link": "007",
+          "pid": "8"
+        },
+        {
+          "name": "Hey where are you going?",
+          "link": "006",
+          "pid": "7"
+        }
+      ],
+      "name": "004",
+      "pid": "5",
+      "position": {
+        "x": "906",
+        "y": "532.5"
+      },
+      "tags": [
+        "Girl",
+        "thinks",
+        "7.4",
+        "prompt"
+      ]
+    },
+    {
+      "text": "YIKES!\n\n[[006]]",
+      "links": [
+        {
+          "name": "006",
+          "link": "006",
+          "pid": "7"
+        }
+      ],
+      "name": "005",
+      "pid": "6",
+      "position": {
+        "x": "889",
+        "y": "187.5"
+      },
+      "tags": [
+        "Girl",
+        "says"
+      ]
+    },
+    {
+      "text": "Shall we start over?\n\n[[001]]",
+      "links": [
+        {
+          "name": "001",
+          "link": "001",
+          "pid": "3"
+        }
+      ],
+      "name": "006",
+      "pid": "7",
+      "position": {
+        "x": "404",
+        "y": "326.5"
+      },
+      "tags": [
+        "Guy",
+        "says"
+      ]
+    },
+    {
+      "text": "[[006]]",
+      "links": [
+        {
+          "name": "006",
+          "link": "006",
+          "pid": "7"
+        }
+      ],
+      "name": "007",
+      "pid": "8",
+      "position": {
+        "x": "720",
+        "y": "684.5"
+      },
+      "tags": [
+        "delay",
+        "3.0"
+      ]
+    },
+    {
+      "text": "Bye!",
+      "name": "008",
+      "pid": "9",
+      "position": {
+        "x": "1011",
+        "y": "363.5"
+      },
+      "tags": [
+        "Girl",
+        "says"
+      ]
+    }
+  ],
+  "name": "vsb-example-01",
+  "startnode": "1",
+  "creator": "Twine",
+  "creator-version": "2.3.8",
+  "ifid": "40449755-11AC-4871-8F16-5CE95D8AA042"
+}

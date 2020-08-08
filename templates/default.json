@@ -1,0 +1,150 @@
+[
+  {
+    "id": "WindowCamera",
+    "on": "true",
+    "type": "WindowCamera",
+    "position": {
+      "x": "0.351",
+      "y": "1.831",
+      "z": "0.155"
+    },
+    "rotation": {
+      "x": "0",
+      "y": "0",
+      "z": "0"
+    },
+    "containerPosition": {
+      "x": "0.351",
+      "y": "1.831",
+      "z": "0.155"
+    },
+    "containerRotation": {
+      "x": "0",
+      "y": "0",
+      "z": "0"
+    },
+    "storables": [
+      {
+        "id": "CollisionTrigger",
+        "trigger": {
+          "startActions": [
+          ],
+          "transitionActions": [
+          ],
+          "endActions": [
+          ]
+        }
+      },
+      {
+        "id": "PluginManager",
+        "plugins": {
+        }
+      },
+      {
+        "id": "control",
+        "interactableInPlayMode": "false",
+        "position": {
+          "x": "0.351",
+          "y": "1.831",
+          "z": "0.155"
+        },
+        "rotation": {
+          "x": "0",
+          "y": "0",
+          "z": "0"
+        }
+      }
+    ]
+  },
+  {
+    "id": "PlayerNavigationPanel",
+    "on": "true",
+    "type": "PlayerNavigationPanel",
+    "position": {
+      "x": "0.5",
+      "y": "0",
+      "z": "0.5"
+    },
+    "rotation": {
+      "x": "0",
+      "y": "0",
+      "z": "0"
+    },
+    "containerPosition": {
+      "x": "0.5",
+      "y": "0",
+      "z": "0.5"
+    },
+    "containerRotation": {
+      "x": "0",
+      "y": "0",
+      "z": "0"
+    },
+    "storables": [
+      {
+        "id": "CollisionTrigger",
+        "trigger": {
+          "startActions": [
+          ],
+          "transitionActions": [
+          ],
+          "endActions": [
+          ]
+        }
+      },
+      {
+        "id": "PluginManager",
+        "plugins": {
+        }
+      },
+      {
+        "id": "control",
+        "position": {
+          "x": "0.5",
+          "y": "0",
+          "z": "0.5"
+        },
+        "rotation": {
+          "x": "0",
+          "y": "0",
+          "z": "0"
+        }
+      }
+    ]
+  },
+  {
+    "id": "CoreControl",
+    "on": "true",
+    "type": "CoreControl",
+    "storables": [
+      {
+        "id": "GlobalLighting",
+        "masterIntensity": "0",
+        "diffuseIntensity": "0",
+        "specularIntensity": "0"
+      },
+      {
+        "id": "MotionAnimationMaster",
+        "triggers": [
+        ]
+      }
+    ]
+  },
+  {
+    "id": "[CameraRig]",
+    "on": "true",
+    "type": "VRController",
+    "position": {
+      "x": "1.366696",
+      "y": "0",
+      "z": "1.970125"
+    },
+    "rotation": {
+      "x": "0",
+      "y": "172.5473",
+      "z": "0"
+    },
+    "storables": [
+    ]
+  }
+]

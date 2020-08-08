@@ -1,0 +1,139 @@
+[
+  {
+    "id": "$ID",
+    "on": "false",
+    "type": "UIButton",
+    "parentAtom": "Dialog-Choices",
+    "position": {
+      "x": "0.5000001",
+      "y": "1.1",
+      "z": "0"
+    },
+    "rotation": {
+      "x": "0",
+      "y": "0",
+      "z": "0"
+    },
+    "containerPosition": {
+      "x": "2.384186E-07",
+      "y": "$POSITION",
+      "z": "0.2"
+    },
+    "containerRotation": {
+      "x": "0",
+      "y": "1.001791E-05",
+      "z": "0"
+    },
+    "storables": [
+      {
+        "id": "AtomControl",
+        "hidden": "true"
+      },
+      {
+        "id": "Preset",
+        "presetName": "blue"
+      },
+      {
+        "id": "CollisionTrigger",
+        "trigger": {
+          "startActions": [
+          ],
+          "transitionActions": [
+          ],
+          "endActions": [
+          ]
+        }
+      },
+      {
+        "id": "Text",
+        "fontSize": "40"
+      },
+      {
+        "id": "Canvas",
+        "ySize": "100"
+      },
+      {
+        "id": "ButtonColor",
+        "alpha": "0.6999999",
+        "color": {
+          "h": "0.6382353",
+          "s": "0.6910569",
+          "v": "0.9647059"
+        }
+      },
+      {
+        "id": "TextColor",
+        "color": {
+          "h": "0",
+          "s": "0",
+          "v": "1"
+        }
+      },
+      {
+        "id": "Trigger",
+        "trigger": {
+          "startActions": [
+            {
+              "name": "$ID:Execute",
+              "receiverAtom": "$ID",
+              "receiver": "plugin#0_JayJayWon.ActionGrouper",
+              "receiverTargetName": "Execute"
+            }
+          ],
+          "transitionActions": [
+          ],
+          "endActions": [
+          ]
+        }
+      },
+      {
+        "id": "PluginManager",
+        "plugins": {
+          "plugin#0": "JayJayWon.ActionGrouper.2:/Custom/Scripts/JayJayWon/ActionGrouper.cs"
+        }
+      },
+      {
+        "id": "control",
+        "interactableInPlayMode": "false",
+        "canGrabPosition": "false",
+        "canGrabRotation": "false",
+        "position": {
+          "x": "2.384186E-07",
+          "y": "$POSITION",
+          "z": "0.2"
+        },
+        "rotation": {
+          "x": "0",
+          "y": "1.001791E-05",
+          "z": "0"
+        }
+      },
+      {
+        "id": "plugin#0_JayJayWon.ActionGrouper",
+        "PhraseRecogniserActive": "true",
+        "act1Probability": "1",
+        "act1Target1FloatValueName": "0",
+        "act2Probability": "1",
+        "act2Target1FloatValueName": "0",
+        "act1Atom1Name": "Dialog-Branch#1",
+        "act1ReceiverGroup1Name": "Other",
+        "act1Receiver1Name": "AnimationPattern",
+        "act1Target1Name": "Play",
+        "act1Target1ValueName": "n/a",
+        "act1Target1ValueSource": "Static",
+        "act1Target1VUMLVarName": "None",
+        "act1Action1TypeName": "ACTION",
+        "act1Target1UrlValueName": "",
+        "act2Atom1Name": "Dialog-Choices",
+        "act2ReceiverGroup1Name": "Other",
+        "act2Receiver1Name": "AtomControl",
+        "act2Target1Name": "on",
+        "act2Target1ValueName": "FALSE",
+        "act2Target1ValueSource": "Static",
+        "act2Target1VUMLVarName": "None",
+        "act2Action1TypeName": "BOOL",
+        "act2Target1UrlValueName": ""
+      }
+    ]
+  }
+]

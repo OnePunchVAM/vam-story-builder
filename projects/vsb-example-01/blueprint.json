@@ -1,0 +1,13 @@
+{
+  "packages": {
+    "Guy": 1,
+    "Girl": 1,
+    "Light": 1
+  },
+  "scenes": [
+    {
+      "scene_path": "example.json",
+      "dialog_path": "dialog/example.json"
+    }
+  ]
+}

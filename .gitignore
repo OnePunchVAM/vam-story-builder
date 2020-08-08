@@ -1,0 +1,7 @@
+__pycache__
+venv
+build
+.idea
+
+config.json
+output.log
